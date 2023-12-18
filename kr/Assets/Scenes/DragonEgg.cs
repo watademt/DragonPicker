@@ -4,9 +4,8 @@ using UnityEngine;
 public class DragonEgg : MonoBehaviour
 {
     public static float bottomY = -30f;
-    void Start()
-    {
-    }
+    public AudioSource audioSource;
+
     private void OnTriggerEnter(Collider other)
     {
         ParticleSystem ps = GetComponent<ParticleSystem>();
@@ -15,6 +14,8 @@ public class DragonEgg : MonoBehaviour
         Renderer rend;
         rend = GetComponent<Renderer>();
         rend.enabled = false;
+        audioSource = GetComponent<AudioSource>();
+        audioSource.Play();
     }
     void Update()
     {
